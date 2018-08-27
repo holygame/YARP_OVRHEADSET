@@ -16,6 +16,8 @@ using namespace yarp::sig;
 
 
 
+
+
 float outFloat = .0f;
 double outDouble = 0;
 Vector leftVector;
@@ -24,7 +26,6 @@ BufferedPort<Bottle> leftport;
 BufferedPort<Bottle> rightport;
 BufferedPort<Bottle> leftStickPort;
 BufferedPort<Bottle> rightStickPort;
-PolyDriver headset;
 IJoypadController *joyPad;
 	
 
