@@ -4,7 +4,7 @@
 #include <thread>
 #include <iostream>
 #include <yarp/dev/IJoypadController.h>
-#include "Ovrheadset_Module.h"
+#include "Cameras.h"
 #include "JoySticksStream.h"
 
 #define DEBUG 0

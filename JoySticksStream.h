@@ -8,7 +8,7 @@
 #include <yarp/dev/IJoypadController.h>
 #include <string>
 
-#define LOG(x) std::cout << x << std::endl;
+
 using std::string;
 using namespace yarp::os;
 using namespace yarp::dev;
