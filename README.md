@@ -152,5 +152,4 @@ the Button are streamed in that order
 
 TODO :
 
-* change CMakeLists so that is works for everybody
-* Use Rate_thread class to join everything in a single project
+* Use Rate_thread class in combination with the RFmodule class
