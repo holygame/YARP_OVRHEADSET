@@ -129,7 +129,7 @@ Port /oculus/display/right:i
  
 more information about the predicted values : [Oculus](https://developer.oculus.com/blog/the-latent-power-of-prediction/)
 
-## ports opened by JoyStickStream :
+## ports opened by OculusInAction :
 
 Port /oculus/joysticks/right/stick:o
 
