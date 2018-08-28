@@ -71,16 +71,16 @@ cmake-gui and set their parametres manually**
 
  * make sure the flag ICUB_USE_IPOPT is set to ON
  
-# YARP_OvrHeadset
+# OculusInAction
 
-Getting images from icub cam to the oculus rift:
+Streaming images from icub cameras to the oculus rift and getting joystick data from the oculus joysticks:
 
-    * place the ovr.ini in the same repertory as your release file (<source_dir>/build/release) 
-	* launch Yarpserver
-	* launch icub_sim
-	* launch frameTransform device : yarpdev --device transformServer --ROS::enable_ros_publisher 1 
-	--ROS::enable_ros_subscriber 1 --transforms_lifetime 0.5
-	* launch Application
+   * place the ovr.ini in the same repertory as your release file (<source_dir>/build/release) 
+   * launch Yarpserver
+   * launch icub_sim
+   * launch frameTransform device : yarpdev --device transformServer --ROS::enable_ros_publisher 1 
+   --ROS::enable_ros_subscriber 1 --transforms_lifetime 0.5
+   * launch Application
 	
 
 ## ports opened by the ovrheadset driver:
