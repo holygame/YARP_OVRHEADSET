@@ -16,7 +16,7 @@ using namespace yarp::sig;
 
 
 
-class MyModule :public RFModule
+class OculusModule :public RFModule
 {
 	//CAMERAS
 	string robotName;
