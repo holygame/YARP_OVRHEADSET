@@ -1,7 +1,7 @@
 # Installing the dependencies on Windows
 
 **Note : all the following runtime libraries have to be built as Multi-threaded DLL (/MD) for release build and Multi-threaded
-Debug DLL (/MDd) for debug [example](https://imgur.com/Rw1K7TT)**
+Debug DLL (/MDd) for debug [example](https://imgur.com/Rw1K7TT) .If you ever run into linker problemes , this is very likely the cause**
 
 
  
@@ -19,14 +19,17 @@ Debug DLL (/MDd) for debug [example](https://imgur.com/Rw1K7TT)**
 		 cd build  
 		 cmake -G "Visual Studio 15 2017 Win64" ..  
   
-launch the .sln created in the build folder
+ * launch the .sln created in the build folder and build the libraries
 
-
+ * add the path to GLFW3.dll to your PATH env variable ( if ovrheadset device isn't ready when typing yarpdev --list , this is very likely the cause )
+ 
 ## 2. GLEW
 
 * Download [GLEW](http://glew.sourceforge.net/), make sure to take the source version.
  
 * Go to  "GLEW_DIR"\build\vc12 and launch glew.sln to build the libraries ( make sure you have administrator rights)
+
+* add the path to GLEW.dll to your PATH env variable ( if ovrheadset device isn't ready when typing yarpdev --list , this is very likely the cause )
 
 ## 3. OculusSDK
 
