@@ -75,11 +75,13 @@ cmake-gui and set their parametres manually**
 
 Getting images from icub cam to the oculus rift:
 
+    * place the ovr.ini in the same repertory as your release file (<source_dir>/build/release) 
 	* launch Yarpserver
 	* launch icub_sim
 	* launch frameTransform device : yarpdev --device transformServer --ROS::enable_ros_publisher 1 
 	--ROS::enable_ros_subscriber 1 --transforms_lifetime 0.5
 	* launch Application
+	
 
 ## ports opened by the ovrheadset driver:
 
