@@ -13,18 +13,18 @@
 using namespace std::literals::chrono_literals;
 
 
- void MyModule::AddAxis(Bottle& b, int n, double out)
+ void OculusModule::AddAxis(Bottle& b, int n, double out)
  {
 	 joyPad->getAxis(n, out);
 	 b.addDouble(out);
  }
- void MyModule::AddButton(Bottle& b, int n, float out)
+ void OculusModule::AddButton(Bottle& b, int n, float out)
  {
 	 joyPad->getButton(n, out);
 	 b.addDouble(out);
  }
 
- void MyModule::AddStick(Bottle& b, int n, Vector& out, IJoypadController::JoypadCtrl_coordinateMode type)
+ void OculusModule::AddStick(Bottle& b, int n, Vector& out, IJoypadController::JoypadCtrl_coordinateMode type)
  {
 	 joyPad->getStick(n, out, type);
 	 for (int i = 0; i < out.length(); i++)
@@ -33,7 +33,7 @@ using namespace std::literals::chrono_literals;
 	 }
  }
 
-bool MyModule::configure(yarp::os::ResourceFinder &rf)
+bool OculusModule::configure(yarp::os::ResourceFinder &rf)
 {
 	leftport.open("/oculus/joysticks/left:o");
 	rightport.open("/oculus/joysticks/right:o");
@@ -46,7 +46,7 @@ bool MyModule::configure(yarp::os::ResourceFinder &rf)
 	
 	string moduleName = rf.find("name").asString();
 	string robotName = rf.find("robot").asString();
-	inputPortL = "/" + robotName + "/cam/left"; // icub or icubsim
+	inputPortL = "/" + robotName + "/cam/left"; 
 	inputPortR = "/" + robotName + "/cam/right";
 	if (DEBUG)
 	{
@@ -103,11 +103,11 @@ bool MyModule::configure(yarp::os::ResourceFinder &rf)
 	}
 	
 }
-bool MyModule::interruptModule()
+bool OculusModule::interruptModule()
 {
 	return true;
 }
-bool MyModule::close()
+bool OculusModule::close()
 {
 
 	if (!DEBUG)
@@ -124,17 +124,17 @@ bool MyModule::close()
 	return true;
 }
 
-bool MyModule::respond(const Bottle& command, Bottle& reply)
+bool OculusModule::respond(const Bottle& command, Bottle& reply)
 {
 	return true;
 }
 
-double MyModule::getPeriod()
+double OculusModule::getPeriod()
 {
 	return 0.05;
 }
 
-bool MyModule::updateModule()
+bool OculusModule::updateModule()
 {
 	//std::this_thread::sleep_for(100ms);
 	Bottle& bLeft = leftport.prepare();
@@ -167,7 +167,9 @@ bool MyModule::updateModule()
 	rightStickPort.write();
 	leftport.write();
 	rightport.write();
-	if (DEBUG)
+	if (DEBUG) // stream images as openCV images , 
+            	//might be usefull to get higher resolution images and compressing 
+            	//them before sending them to the oculus as to no saturate the network
 	{
 		ImageOf<PixelRgb> imgL;
 		if (IframL == nullptr)
@@ -223,9 +225,9 @@ int main(int argc, char** argv)
 	rf.setDefault("name", "Grabber");
 	rf.setDefault("robot", "icubSim");
 	//rf.setDefault("robot", "iCubNancy01");
-	rf.setDefaultConfigFile("myModule.ini");
-	rf.setDefaultContext("myModule/conf");
+	rf.setDefaultConfigFile("oculusModule.ini");
+	rf.setDefaultContext("oculusModule/conf");
 	rf.configure(argc, argv);
-	MyModule myModule;
-	return myModule.runModule(rf);
+	OculusModule oculusModule;
+	return oculusModule.runModule(rf);
 }
