@@ -33,7 +33,7 @@ Debug DLL (/MDd) for debug [example](https://imgur.com/Rw1K7TT) .If you ever run
 
 ## 3. OculusSDK
 
-* Dowload Oculus SDK version 1.16 because higher version are not supported yet.
+* Dowload [Oculus SDK](https://developer.oculus.com/downloads/package/oculus-sdk-for-windows/1.16.0/) version 1.16 because higher version are not supported yet.
 
 * Go to <Oculus_DIR>\Samples\Projects\Windows\VS2015 and open Samples.sln 
 
@@ -76,9 +76,20 @@ cmake-gui and set their parametres manually**
  
 # OculusInAction
 
+to build the application :
+
+ * Create a build folder and a Release folder inside of it.
+ * place the ovr.ini file inside the release file (<source_dir>/build/release)
+ * open a terminal from the build directory and type in:
+ 
+
+        cmake -G "Visual Studio 15 2017 Win64" .. 
+        
+ * Open the .sln created with Visual Studio and build the project as a Win64 Release application 
+
 Streaming images from icub cameras to the oculus rift and getting joystick data from the oculus joysticks:
 
-   * place the ovr.ini in the same repertory as your release file (<source_dir>/build/release) 
+
    * launch Yarpserver
    * launch icub_sim
    * launch frameTransform device : yarpdev --device transformServer --ROS::enable_ros_publisher 1 
